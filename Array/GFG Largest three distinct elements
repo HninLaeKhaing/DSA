@@ -1,8 +1,6 @@
-
+```java
 class Solution {
     public int[] getThreeLargest(int arr[]) {
-
-        int output[] = new int[3];
 
         int x = Integer.MIN_VALUE;
         int y = Integer.MIN_VALUE;
@@ -24,11 +22,30 @@ class Solution {
             }
         }
 
-        output[0] = x;
-        output[1] = y;
-        output[2] = z;
+        // Find how many distinct largest values exist
+        int count = 0;
+
+        if (x != Integer.MIN_VALUE)
+            count++;
+
+        if (y != Integer.MIN_VALUE)
+            count++;
+
+        if (z != Integer.MIN_VALUE)
+            count++;
+
+        int output[] = new int[count];
+
+        if (count >= 1)
+            output[0] = x;
+
+        if (count >= 2)
+            output[1] = y;
+
+        if (count >= 3)
+            output[2] = z;
 
         return output;
     }
 }
-
+```
