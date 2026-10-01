@@ -1,0 +1,49 @@
+class SpecialStack {
+    int[] stack;
+    int[] minstack;
+    int head;
+    public SpecialStack() {
+        stack = new int[1000];
+        minstack = new int[1000];
+        head = 0;
+    }
+
+    public void push(int x) {
+        stack[head] = x;
+        if(head==0){
+            minstack[head] =x;
+        }
+        else{
+            minstack[head] = Math.min(x,minstack[head - 1]);
+        }
+        head++;
+    }
+
+    public void pop() {
+        if(head>0){
+            head--;
+        }
+    }
+
+    public int peek() {
+        if(head ==0){
+            return -1;
+        }
+        
+        return stack[head - 1];
+        
+    }
+
+    boolean isEmpty() {
+        
+        return head ==0;
+        
+    }
+
+    public int getMin() {
+        if(head == 0){
+            return -1;
+        }
+        return minstack[head - 1];
+    }
+}
