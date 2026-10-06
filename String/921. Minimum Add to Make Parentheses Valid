@@ -1,0 +1,23 @@
+class Solution {
+    public int minAddToMakeValid(String s) {
+        char[] stack = new char[s.length() +1];
+        int head = 0;
+        int remove = 0;
+        for(char c: s.toCharArray()){
+            if(c == '('){
+                stack[head] = ')';
+                head++;
+            }
+            else if(c== ')'){
+                if(head > 0){
+                    head--;
+                }
+                else{
+                    remove++;
+                }
+            }
+        }
+        return head+remove;
+        
+    }
+}
