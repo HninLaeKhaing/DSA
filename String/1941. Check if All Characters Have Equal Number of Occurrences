@@ -1,0 +1,27 @@
+class Solution {
+    public boolean areOccurrencesEqual(String s) {
+        
+        int index = 0;
+        int[] arr = new int[26];
+        for(int i=0; i< s.length(); i++){
+            index = s.charAt(i) - 'a';
+            arr[index]++;
+
+        }
+        int frequency = 0;
+        for(int i =0; i<26;i++){
+            if(arr[i] >0){
+                if(frequency == 0){
+                    frequency = arr[i];
+                }
+                else if ( arr[i] != frequency){
+                    return false;
+                }
+            }
+        }
+        return true;
+
+
+    }
+}
+
